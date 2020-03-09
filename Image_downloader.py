@@ -10,7 +10,7 @@ except ModuleNotFoundError:
 
 this_file = path.abspath(path.dirname(__file__))
 source = this_file / Path(r'BBID.py')
-
+print(source)
 parent_dir = this_file / Path(r'Completed Queries')
 try:
     mkdir(parent_dir)
@@ -33,7 +33,7 @@ def search_and_dump(query, quantity):
         mkdir(new_search_folder)
     except FileExistsError:
         pass
-    run(['python', source, '-s',
+    run(['python', str(source), '-s',
          '\"{}\"'.format(query), '-o', '{}'.format(new_search_folder), '--limit', '{}'.format(quantity)])
 
 def help():
